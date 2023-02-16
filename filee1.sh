@@ -1,15 +1,23 @@
-#! /bin/bash 
+! /bin/bash 
 
-#Write script which will make a copy of file/directory without using linux "cp" command:
+#Write script which will make a copy of file/directory without using linux "cp" command
 
+function cp_script() {
+ if [ -e "$1" ]
+then
+       if [ -f "$1" ]
 
-echo "Enter first file"
-read file1
-echo "Enter second file"
-read file2
-if [ -f $file1 ]
- then
-  cat $file1 >> $file2
-else 
-      echo "Not file exist:"
-fi      
+       then
+
+        cat "$1" >> "$2"
+   fi
+
+# $1 file that is exist.
+# $2 new file where doing copy.
+
+else
+        echo "File dosen't exist."
+fi
+
+}
+    
