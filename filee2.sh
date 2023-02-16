@@ -2,13 +2,19 @@
 
 #Delete all the empty lines from the file and save it back.
 
-read -p "Input first file name" file_path1
-while read -r line
-do
-	if [[ $line=~ ^$ ]]
-	 then
-		 continue
-  else
-	  echo $line
+function empty_lines() {
+if [ -e "$1" ]
+          then
+ # Command that delate empty lines.
+
+
+                  sed -i '/$/d' "$1"
+else
+        echo "File dosen't exist."
+
 fi
-done < $file_path1
+
+}
+empty_lines $1
+
+
